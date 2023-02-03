@@ -1,26 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom'
-import classes from './MainNavigation.module.css'
+import { NavLink } from 'react-router-dom';
+import classes from './MainNavigation.module.css';
 
-const MainNavigation = props => {
+const MainNavigation = (props) => {
   return (
     <header className={classes.header}>
       <nav>
         <ul className={classes.list}>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink to="/" className={({ isActive }) => isActive && classes.active} end>
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to='/products'>Products</Link>
+            <NavLink to="/products" className={({ isActive }) => isActive && classes.active}>
+              Products
+            </NavLink>
           </li>
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-MainNavigation.propTypes = {}
+MainNavigation.propTypes = {};
 
-export default MainNavigation
+export default MainNavigation;
